@@ -386,7 +386,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (fallKickoffAttendance && feeMessage) {
     const renderFeeMessage = (value) => {
       if (value === "Yes") {
-        feeMessage.textContent = "Your tournament registration fee is 100% sponsored by Hamilton Chess Club and your fees is waived. You pay $0.";
+              feeMessage.textContent = "Your tournament registration fee is 100% sponsored by Wisconsin South East Chess Club and your fees is waived. You pay $0.";
       } else if (value === "No") {
         if (currentDate <= earlyBirdCutoff) {
           feeMessage.textContent = "Thank you for the information. You have received the Early Bird registration discount. Your tournament registration fee is $20.";
@@ -542,8 +542,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = document.querySelector('[name="entry.1713739749"]')?.value || "";
     const payment = document.getElementById("paymentMethod")?.value || "";
 
-    const subject = encodeURIComponent(`Hamilton Chess Club Payment Receipt - ${student} (${parent})`);
-    const body = encodeURIComponent(`Hello Hamilton Chess Club,
+    const subject = encodeURIComponent(`Wisconsin South East Chess Club Payment Receipt - ${student} (${parent})`);
+    const body = encodeURIComponent(`Hello Wisconsin South East Chess Club,
 
 I have completed payment for ${student}.
 
@@ -686,10 +686,10 @@ Thank you.
 
   const tournamentTitles = {
     "wscf-Feb-2026": "19th Annual WSCF Grade Level Tournament",
-    "summer-june-2026": "Hamilton Chess Club - Summer Program",
-    "summer-july-2026": "Hamilton Chess Club - Summer Program Tournament Winners",
-    "fall-kickoff-aug-2026": "Hamilton Chess Club - Fall Kick-Off Program",
-    "fall-kickoff-sep-2026": "Hamilton Chess Club - Fall Kick-Off Program Tournament Winners"
+    "summer-june-2026": "Wisconsin South East Chess Club - Summer Program",
+    "summer-july-2026": "Wisconsin South East Chess Club - Summer Program Tournament Winners",
+    "fall-kickoff-aug-2026": "Wisconsin South East Chess Club - Fall Kick-Off Program",
+    "fall-kickoff-sep-2026": "Wisconsin South East Chess Club - Fall Kick-Off Program Tournament Winners"
   };
 
   const likedTournaments = JSON.parse(localStorage.getItem("likedTournaments") || "[]");
@@ -721,8 +721,8 @@ Thank you.
   window.shareTournament = async function (event, tournamentKey) {
     event.stopPropagation();
     const shareData = {
-      title: tournamentTitles[tournamentKey] || "Hamilton Chess Club tournament",
-      text: "View this Hamilton Chess Club tournament gallery.",
+      title: tournamentTitles[tournamentKey] || "Wisconsin South East Chess Club tournament",
+      text: "View this Wisconsin South East Chess Club tournament gallery.",
       url: window.location.href.split("#")[0] + `#${tournamentKey}`
     };
 

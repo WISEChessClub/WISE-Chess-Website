@@ -168,7 +168,7 @@ header {
 }
 
 .club-title {
-  font-size: clamp(16px, 3vw, 34px);
+  font-size: clamp(15px, 2.3vw, 26px);
   font-weight: 700;
   line-height: 1;
   white-space: nowrap;
@@ -271,7 +271,7 @@ header {
 .brand-text h2 {
   margin: 0;
   color: black;
-  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-size: clamp(0.9rem, 1.5vw, 1.15rem);
   font-weight: 700;
   white-space: nowrap;
 }
@@ -434,7 +434,8 @@ nav a:hover {
 }
 
 .hero h1 {
-  font-size: 3rem;
+  font-size: clamp(1.5rem, 2.4vw, 2.35rem);
+  white-space: nowrap;
   margin-bottom: 20px;
 }
 
@@ -450,7 +451,7 @@ nav a:hover {
     padding: 50px 0;
   }
   .hero h1 {
-    font-size: 2rem;
+    font-size: 1.35rem;
   }
 }
 
@@ -2844,7 +2845,7 @@ body {
 
 .shirt-card img {
   width: 100%;
-  max-height: 500px;
+  height: clamp(320px, 42vw, 500px);
   object-fit: contain;
   border-radius: 12px;
 }
@@ -3090,7 +3091,7 @@ nav ul li a:hover {
   }
 
   .hero h1 {
-    font-size: 2rem;
+    font-size: 1.35rem;
   }
 
   .hero h2 {
@@ -3636,6 +3637,93 @@ nav ul li a:hover {
 #mainNav ul li a {
   display: inline-block;
   padding: 0;
+}
+
+.brand {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.brand-text {
+  min-width: 0;
+}
+
+.logo-img {
+  width: auto;
+  height: clamp(48px, 7vw, 82px);
+  max-width: 25vw;
+  object-fit: contain;
+}
+
+.club-title,
+.brand-text h2 {
+  max-width: 100%;
+  font-size: clamp(0.78rem, 1.65vw, 1.25rem);
+  line-height: 1.1;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.club-tagline,
+.brand-text p {
+  max-width: 100%;
+  font-size: clamp(0.62rem, 1.05vw, 0.82rem);
+  line-height: 1.2;
+  white-space: normal;
+}
+
+@media (min-width: 1025px) {
+  #mainNav ul {
+    gap: clamp(4px, 0.7vw, 10px);
+  }
+
+  nav a {
+    font-size: clamp(0.66rem, 0.72vw, 0.82rem);
+  }
+}
+
+@media (max-width: 1024px) {
+  .brand {
+    max-width: calc(100% - 50px);
+  }
+
+  .logo-img {
+    max-width: 22vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo-img {
+    height: clamp(44px, 13vw, 60px);
+    max-width: 24vw;
+  }
+
+  .club-title,
+  .brand-text h2 {
+    font-size: clamp(0.72rem, 3.4vw, 1.05rem);
+  }
+
+  .club-tagline,
+  .brand-text p {
+    font-size: clamp(0.58rem, 2vw, 0.72rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-img {
+    height: 44px;
+    max-width: 24vw;
+  }
+
+  .brand {
+    gap: 5px;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.35rem, 7vw, 1.9rem);
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
 }
 
 .review-submit {
