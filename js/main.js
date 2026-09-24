@@ -558,7 +558,7 @@ Thank you.
 `);
 
     window.open(
-      `https://mail.google.com/mail/?view=cm&fs=1&to=hamiltonsdchess@gmail.com&su=${subject}&body=${body}`,
+      `https://mail.google.com/mail/?view=cm&fs=1&to=contactwisechess@gmail.com&su=${subject}&body=${body}`,
       "_blank"
     );
   };
