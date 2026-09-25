@@ -598,24 +598,54 @@ Thank you.
   const reviewContainer = document.getElementById("dynamicReviews");
   if (reviewContainer) {
     fetch(
-      "https://script.google.com/macros/s/AKfycbzu7Wj2UGI6EDhpb6F0vl25BfyzG8K8eMyb5x0UG-iBiIbbKNVdaRGeDrH4r4jiPXvk7w/exec"
+      "https://script.google.com/macros/s/AKfycbyIT83CTFhyRKNtZDJ3Dd69XP8L_NwPZ9Krjla2mmep7nqI9Y1SFA8_83aDHAjLXF4DSQ/exec"
     )
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Reviews API returned HTTP ${response.status}`);
+        }
+        return response.json();
+      })
       .then((data) => {
         reviewContainer.innerHTML = "";
+
+        if (!Array.isArray(data)) {
+          throw new Error("Reviews API returned an invalid response");
+        }
+
+        if (!data.length) {
+          reviewContainer.textContent = "No reviews available yet.";
+          return;
+        }
+
         data.forEach((review) => {
-          reviewContainer.innerHTML += `
-            <div class="testimonial-card">
-              <div class="stars">${"★".repeat(review.rating)}</div>
-              <p>${review.review}</p>
-              <h4>${review.parent}</h4>
-              <span>Parent of ${review.student} • ${review.program}</span>
-            </div>
-          `;
+          const card = document.createElement("div");
+          card.className = "testimonial-card";
+
+          const stars = document.createElement("div");
+          stars.className = "stars";
+          const parsedRating = Number(review?.rating);
+          const rating = Number.isFinite(parsedRating)
+            ? Math.max(0, Math.min(5, Math.round(parsedRating)))
+            : 0;
+          stars.textContent = "★".repeat(rating);
+
+          const reviewText = document.createElement("p");
+          reviewText.textContent = review?.review ?? "";
+
+          const parent = document.createElement("h4");
+          parent.textContent = review?.parent ?? "";
+
+          const student = document.createElement("span");
+          student.textContent = `Parent of ${review?.student ?? ""} • ${review?.program ?? ""}`;
+
+          card.append(stars, reviewText, parent, student);
+          reviewContainer.appendChild(card);
         });
       })
       .catch((error) => {
         console.error("Review Load Error:", error);
+        reviewContainer.textContent = "Unable to load reviews right now.";
       });
   }
 
