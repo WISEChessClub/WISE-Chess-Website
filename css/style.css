@@ -23,7 +23,33 @@ body {
   text-indent: 2.5em;
 }
 
+.story-period + .story-period {
+  margin-top: 28px;
+}
+
+.section-header .vision-heading,
+.story-text .vision-heading {
+  margin: 0 0 4px;
+  color: #132a13;
+  font-size: 1.8rem;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.story-text .brand-tagline {
+  margin: 0 0 18px;
+  text-align: left;
+  text-indent: 0;
+  font-size: 1.35rem;
+  line-height: 1.35;
+}
+
 @media (max-width: 768px) {
+  .section-header .vision-heading,
+  .story-text .vision-heading {
+    font-size: 1rem;
+  }
+
   .story-text p {
     text-align: justify; /* better readability on mobile */
     text-indent: 1.25em;
