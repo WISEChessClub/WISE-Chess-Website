@@ -716,8 +716,8 @@ Thank you.
 
   const tournamentTitles = {
     "wscf-Feb-2026": "19th Annual WSCF Grade Level Tournament",
-    "summer-june-2026": "Wisconsin South East Chess Club - Summer Program",
-    "summer-july-2026": "Wisconsin South East Chess Club - Summer Program Tournament Winners",
+    "summer-june-2026": "Summer Program - Jun-Jul 2026",
+    "summer-july-2026": "Summer Program - July 2026 - Tournament Winners",
     "fall-kickoff-aug-2026": "Wisconsin South East Chess Club - Fall Kick-Off Program",
     "fall-kickoff-sep-2026": "Wisconsin South East Chess Club - Fall Kick-Off Program Tournament Winners"
   };
